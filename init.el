@@ -67,7 +67,18 @@
 (add-hook 'find-file-not-found-functions 'my-find-file-not-found-set-default-coding-system-hook)
 
 ;; Preload this file so that I can get to it faster.
-(find-file-noselect "~/.emacs.d/init.el")
+(let
+    (
+     (files
+      '(
+	"~/.emacs.d/init.el"
+	"~/OneDrive/repos/Main/.txt"
+	"~/.txt"
+	))
+     )
+  (dolist (file files nil)
+    (when (file-exists-p file)
+      (find-file-noselect file))))
 
 ;; Automatically update .emacs.d.
 (with-current-buffer (find-file-noselect "~/.emacs.d/init.el")
