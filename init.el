@@ -38,7 +38,7 @@
     (("gnu" . "http://elpa.gnu.org/packages/")
      ("melpa-stable" . "https://stable.melpa.org/packages/")
      ("melpa" . "https://melpa.org/packages/"))))
- '(package-selected-packages (quote (js2-mode use-package))))
+ '(package-selected-packages (quote (editorconfig js2-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -54,6 +54,10 @@
   :pin "melpa" ;; get moar updates
   :mode ("\\.js\\'" . js2-jsx-mode)
   :interpreter ("node" . js2-jsx-mode))
+
+(use-package
+  editorconfig
+  :config (editorconfig-mode 1))
 
 ;;; https://emacs.stackexchange.com/a/9953/5172
 (defun my-find-file-not-found-set-default-coding-system-hook ()
