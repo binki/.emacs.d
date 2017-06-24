@@ -47,8 +47,9 @@
  )
 
 (setq use-package-always-ensure t)
+
 (use-package
-    js2-mode
+  js2-mode
   :mode ("\\.js\\'" . js2-jsx-mode)
   :interpreter ("node" . js2-jsx-mode))
 
@@ -61,3 +62,7 @@
 
 ;; Preload this file so that I can get to it faster.
 (find-file-noselect "~/.emacs.d/init.el")
+
+;; Automatically update .emacs.d.
+(with-current-buffer (find-file-noselect "~/.emacs.d/init.el")
+  (vc-pull))
