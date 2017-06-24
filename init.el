@@ -31,5 +31,12 @@
   :mode ("\\.js\\'" . js2-jsx-mode)
   :interpreter ("node" . js2-jsx-mode))
 
+;;; https://emacs.stackexchange.com/a/9953/5172
+(defun my-find-file-not-found-set-default-coding-system-hook ()
+  "If a file is new, set it to be unix by default because CRLF is annoying."
+  (with-current-buffer (current-buffer)
+    (setq buffer-file-coding-system 'utf-8-unix)))
+(add-hook 'find-file-not-found-functions 'my-find-file-not-found-set-default-coding-system-hook)
+
 ;; Preload this file so that I can get to it faster.
 (find-file-noselect "~/.emacs.d/init.el")
