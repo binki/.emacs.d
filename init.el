@@ -47,9 +47,11 @@
  )
 
 (setq use-package-always-ensure t)
+(setq use-package-always-pin "melpa-stable")
 
 (use-package
   js2-mode
+  :pin "melpa" ;; get moar updates
   :mode ("\\.js\\'" . js2-jsx-mode)
   :interpreter ("node" . js2-jsx-mode))
 
