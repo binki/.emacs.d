@@ -12,7 +12,8 @@
  '(package-archives
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
-     ("melpa-stable" . "https://stable.melpa.org/packages/"))))
+     ("melpa-stable" . "https://stable.melpa.org/packages/")
+     ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages (quote (js2-mode use-package)))
  '(tls-program
    (quote
