@@ -72,7 +72,7 @@
      (files
       '(
 	"~/.emacs.d/init.el"
-	"~/OneDrive/repos/Main/.txt"
+	"~/OneDrive/.txt"
 	"~/.txt"
 	))
      )
