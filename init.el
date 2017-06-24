@@ -13,7 +13,7 @@
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
      ("melpa-stable" . "https://stable.melpa.org/packages/"))))
- '(package-selected-packages (quote (use-package)))
+ '(package-selected-packages (quote (js2-mode use-package)))
  '(tls-program
    (quote
     ("gnutls-cli --x509cafile %t -p %p %h" "gnutls-cli --x509cafile %t -p %p %h --protocols ssl3" "openssl s_client -connect %h:%p -no_ssl2 -ign_eof" "\\msys64\\usr\\bin\\openssl s_client -connect %h:%p -no_ssl2 -ign_eof"))))
@@ -23,3 +23,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(setq use-package-always-ensure t)
+(use-package
+    js2-mode
+  :mode ("\\.js\\'" . js2-jsx-mode)
+  :interpreter ("node" . js2-jsx-mode))
