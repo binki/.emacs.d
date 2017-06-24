@@ -1,4 +1,3 @@
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -13,7 +12,11 @@
  '(package-archives
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
-     ("melpa-stable" . "https://stable.melpa.org/packages/")))))
+     ("melpa-stable" . "https://stable.melpa.org/packages/"))))
+ '(package-selected-packages (quote (use-package)))
+ '(tls-program
+   (quote
+    ("gnutls-cli --x509cafile %t -p %p %h" "gnutls-cli --x509cafile %t -p %p %h --protocols ssl3" "openssl s_client -connect %h:%p -no_ssl2 -ign_eof" "\\msys64\\usr\\bin\\openssl s_client -connect %h:%p -no_ssl2 -ign_eof"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
