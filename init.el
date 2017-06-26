@@ -83,3 +83,4 @@
 ;; Automatically update .emacs.d.
 (with-current-buffer (find-file-noselect "~/.emacs.d/init.el")
   (vc-pull))
+(put 'upcase-region 'disabled nil)
