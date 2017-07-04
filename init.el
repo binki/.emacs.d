@@ -46,6 +46,11 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; binki’s attempt to bootstrap use-package
+(unless (fboundp 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
 (setq use-package-always-ensure t)
 (setq use-package-always-pin "melpa-stable")
 
