@@ -82,6 +82,7 @@
 	"~/.emacs.d/init.el"
 	"~/OneDrive/.txt"
 	"~/.txt"
+	"~/OneDrive/Documents/IISExpress/config/applicationhost.config"
 	))
      )
   (dolist (file files nil)
