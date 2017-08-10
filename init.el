@@ -93,3 +93,4 @@
 (with-current-buffer (find-file-noselect "~/.emacs.d/init.el")
   (vc-pull))
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
