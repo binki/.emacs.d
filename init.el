@@ -38,7 +38,9 @@
     (("gnu" . "http://elpa.gnu.org/packages/")
      ("melpa-stable" . "https://stable.melpa.org/packages/")
      ("melpa" . "https://melpa.org/packages/"))))
- '(package-selected-packages (quote (csharp-mode editorconfig js2-mode use-package))))
+ '(package-selected-packages
+   (quote
+    (company web-mode company-mode tide csharp-mode editorconfig js2-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -67,6 +69,15 @@
 (use-package
   csharp-mode)
 
+(use-package
+  tide)
+
+(use-package
+  company)
+
+(use-package
+  web-mode)
+
 ;;; https://emacs.stackexchange.com/a/9953/5172
 (defun my-find-file-not-found-set-default-coding-system-hook ()
   "If a file is new, set it to be unix by default because CRLF is annoying."
@@ -94,3 +105,21 @@
   (vc-pull))
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+;; https://github.com/ananthakumaran/tide#typescript
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode 1)
+  (setq flyecheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode 1)
+  (tide-hl-identifier-mode 1)
+  (company-mode))
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-hook
+ 'web-mode-hook
+ (lambda ()
+   (when (string-equal "tsx" (file-name-extension buffer-file-name))
+     (setup-tide-mode))))
+(flycheck-add-mode 'typescript-tslint 'web-mode)
