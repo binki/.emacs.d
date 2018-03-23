@@ -123,3 +123,7 @@
    (when (string-equal "tsx" (file-name-extension buffer-file-name))
      (setup-tide-mode))))
 (flycheck-add-mode 'typescript-tslint 'web-mode)
+
+;; To get Emacs to prefer Unicode over ShiftJIS
+;; http://www.gnu.org/software/emacs/manual/html_node/emacs/Recognize-Coding.html
+(prefer-coding-system 'utf-8)
