@@ -18,6 +18,12 @@
     (setenv "PATH" (concat (getenv "PATH") (mapconcat 'identity paths ";")))
     (setq exec-path (append exec-path paths))))
 
+;; To get Emacs to prefer Unicode over ShiftJIS
+;; http://www.gnu.org/software/emacs/manual/html_node/emacs/Recognize-Coding.html
+;; Do this before package stuff so that the package thing does not
+;; prompt which encoding I want to use to read packages with.
+(prefer-coding-system 'utf-8)
+
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -40,7 +46,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (company web-mode company-mode tide csharp-mode editorconfig js2-mode use-package))))
+    (tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -58,7 +64,6 @@
 
 (use-package
   js2-mode
-  :pin "melpa" ;; get moar updates
   :mode ("\\.js\\'" . js2-jsx-mode)
   :interpreter ("node" . js2-jsx-mode))
 
@@ -122,8 +127,4 @@
  (lambda ()
    (when (string-equal "tsx" (file-name-extension buffer-file-name))
      (setup-tide-mode))))
-(flycheck-add-mode 'typescript-tslint 'web-mode)
-
-;; To get Emacs to prefer Unicode over ShiftJIS
-;; http://www.gnu.org/software/emacs/manual/html_node/emacs/Recognize-Coding.html
-(prefer-coding-system 'utf-8)
+;(flycheck-add-mode 'typescript-tslint 'web-mode)
