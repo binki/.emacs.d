@@ -1,6 +1,6 @@
-;; On Windows, I have a lot of things installed via MSYS2. But I don’t
-;; add tha to Windows’s PATH because that causes problems for some
-;; things. So add it explicitly to Emacs, but only if it exists.
+;; On Windows, I have a lot of things installed via MSYS2. But I
+;; don’t add that to Windows’s PATH because that causes problems for
+;; some things. So add it explicitly to Emacs, but only if it exists.
 ;; Using example from
 ;; http://ergoemacs.org/emacs/emacs_env_var_paths.html
 (when (string-equal system-type "windows-nt")
