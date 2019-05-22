@@ -4,19 +4,28 @@
 ;; Using example from
 ;; http://ergoemacs.org/emacs/emacs_env_var_paths.html
 (when (string-equal system-type "windows-nt")
-  (let
+  (let*
       (
        (paths
 	'(
 	  "C:/msys64/usr/bin"
 	  ))
+       (firefox-profile-directory (concat (file-name-as-directory (getenv "HOME")) "AppData/Roaming/Mozilla/Firefox/Profiles/mcchw86t.dev-edition-default/"))
+       (firefox-profile-binki-backup-directory (file-name-as-directory (concat firefox-profile-directory "binki-backups")))
        )
     ;; Have to also set PATH so that shell-command works at all (which
     ;; some things use to e.g. call openssl) even though this will
     ;; confuse any launch MS commands :-/ (e.g.,
     ;; package-refresh-contents)
     (setenv "PATH" (concat (getenv "PATH") (mapconcat 'identity paths ";")))
-    (setq exec-path (append exec-path paths))))
+    (setq exec-path (append exec-path paths))
+    ;; Firefox apparently likes to lose profs.js sometimes after a Windows
+    ;; BSOD/GSOD. To guard against this, manage backups of it.
+    (when (file-directory-p firefox-profile-directory)
+      (make-directory firefox-profile-binki-backup-directory t)
+      (add-name-to-file
+       (concat firefox-profile-directory "prefs.js")
+       (concat firefox-profile-binki-backup-directory "prefs.js" (format-time-string ".%Y%m%d"))))))
 
 ;; To get Emacs to prefer Unicode over ShiftJIS
 ;; http://www.gnu.org/software/emacs/manual/html_node/emacs/Recognize-Coding.html
