@@ -61,7 +61,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(diff-added ((t (:inherit diff-changed :background "#335533" :foreground "black")))))
+ '(diff-added ((t (:inherit diff-changed :background "#337744" :foreground "#ffffff"))))
+ '(diff-refine-added ((t (:inherit diff-refine-changed :background "#22ff44" :foreground "#3300ff")))))
 
 ;; binki’s attempt to bootstrap use-package
 (unless (fboundp 'use-package)
