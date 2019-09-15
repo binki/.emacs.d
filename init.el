@@ -138,3 +138,17 @@
    (when (string-equal "tsx" (file-name-extension buffer-file-name))
      (setup-tide-mode))))
 (flycheck-add-mode 'typescript-tslint 'web-mode)
+
+;; Get the test failures from node like stack traces to be recognized.
+(eval-after-load "compile"
+  '(progn
+     (dolist
+       (regexp
+         `((binki-node-stacktrace
+             "^ *at [^ ]+ (\\(.*\\):\\([0-9]+\\):\\([0-9]+\\))$"
+             1
+             2
+             3
+             2)))
+       (add-to-list 'compilation-error-regexp-alist-alist regexp)
+       (add-to-list 'compilation-error-regexp-alist (car regexp)))))
