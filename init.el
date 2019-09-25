@@ -55,7 +55,8 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package))))
+    (tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package)))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
