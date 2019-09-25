@@ -48,6 +48,7 @@
     (quote
      ((background-color . "black")
       (foreground-color . "green"))))
+ '(menu-bar-mode nil)
  '(package-archives
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
