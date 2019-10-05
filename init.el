@@ -17,7 +17,7 @@
     ;; some things use to e.g. call openssl) even though this will
     ;; confuse any launch MS commands :-/ (e.g.,
     ;; package-refresh-contents)
-    (setenv "PATH" (concat (getenv "PATH") (mapconcat 'identity paths ";")))
+    (setenv "PATH" (concat (mapconcat 'identity (cons (getenv "PATH") paths) ";")))
     (setq exec-path (append exec-path paths))
     ;; Firefox apparently likes to lose profs.js sometimes after a Windows
     ;; BSOD/GSOD. To guard against this, manage backups of it.
