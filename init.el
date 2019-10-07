@@ -109,6 +109,7 @@
       '(
 	"~/.emacs.d/init.el"
 	"~/OneDrive/.txt"
+	"~/OneDrive/.org"
 	"~/.txt"
 	"~/OneDrive/Documents/IISExpress/config/applicationhost.config"
 	))
