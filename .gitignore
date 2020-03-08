@@ -2,6 +2,7 @@
 *\#*
 *.swp
 auto-save-list
+bookmarks
 elpa
 server
 tramp
