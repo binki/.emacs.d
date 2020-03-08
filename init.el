@@ -56,7 +56,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package)))
+    (php-mode tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -85,6 +85,9 @@
 
 (use-package
   csharp-mode)
+
+(use-package
+  php-mode)
 
 (use-package
   tide)
