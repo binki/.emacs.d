@@ -64,7 +64,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(diff-added ((t (:inherit diff-changed :background "#337744" :foreground "#ffffff"))))
- '(diff-refine-added ((t (:inherit diff-refine-changed :background "#22ff44" :foreground "#3300ff")))))
+ '(diff-refine-added ((t (:inherit diff-refine-changed :background "#22ff44" :foreground "#3300ff"))))
+ '(js2-error ((t (:foreground "#ffaabb" :underline t)))))
 
 ;; binki’s attempt to bootstrap use-package
 (unless (fboundp 'use-package)
