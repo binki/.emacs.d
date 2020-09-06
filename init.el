@@ -136,6 +136,7 @@
   (setq flyecheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode 1)
   (tide-hl-identifier-mode 1)
+  (local-set-key (kbd "M-]") 'tide-references)
   (company-mode))
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
