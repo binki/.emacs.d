@@ -56,7 +56,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (php-mode tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package)))
+    (battle-haxe php-mode tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -72,6 +72,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(require 'use-package-ensure)
 (setq use-package-always-ensure t)
 (setq use-package-always-pin "melpa-stable")
 
@@ -91,10 +92,32 @@
   php-mode)
 
 (use-package
-  tide)
+  tide
+  :config
+  (flycheck-add-mode 'typescript-tslint 'web-mode))
 
 (use-package
   company)
+
+;; https://github.com/AlonTzarafi/battle-haxe#installation
+(use-package
+  haxe-mode
+  ;; This is a faked out package, so don’t try to install it. That would give us some other unrelated package.
+  :ensure nil
+  :mode ("\\.hx\\'" . haxe-mode)
+  :no-require t
+  :init
+  (require 'js)
+  (define-derived-mode haxe-mode js-mode "Haxe"
+    "Haxe syntax highlighting mode. This is simply using js-mode for now."))
+(use-package
+  battle-haxe
+  ;; Not on melpa-stable
+  :pin "melpa"
+  :hook (haxe-mode . battle-haxe-mode)
+  :bind (;;("M-," . #'pop-global-mark)
+	 :map battle-haxe-mode-map
+	 ("M-." . #'battle-haxe-goto-definition)))
 
 (use-package
   web-mode)
@@ -145,7 +168,6 @@
  (lambda ()
    (when (string-equal "tsx" (file-name-extension buffer-file-name))
      (setup-tide-mode))))
-(flycheck-add-mode 'typescript-tslint 'web-mode)
 
 ;; Get the test failures from node like stack traces to be recognized.
 (eval-after-load "compile"
