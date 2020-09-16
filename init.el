@@ -56,8 +56,9 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (battle-haxe php-mode tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package)))
- '(tool-bar-mode nil))
+    (vc-hgcmd battle-haxe php-mode tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package)))
+ '(tool-bar-mode nil)
+ '(vc-handled-backends (quote (RCS CVS SVN SCCS SRC Bzr Git Hgcmd Hg))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -117,7 +118,10 @@
   :hook (haxe-mode . battle-haxe-mode)
   :bind (;;("M-," . #'pop-global-mark)
 	 :map battle-haxe-mode-map
-	 ("M-." . #'battle-haxe-goto-definition)))
+	      ("M-." . #'battle-haxe-goto-definition)))
+
+(use-package
+  vc-hgcmd)
 
 (use-package
   web-mode)
