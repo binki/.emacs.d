@@ -45,27 +45,28 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default-frame-alist
-    (quote
-     ((background-color . "black")
-      (foreground-color . "green"))))
+    '((background-color . "black")
+      (foreground-color . "green")))
  '(menu-bar-mode nil)
  '(package-archives
-   (quote
-    (("gnu" . "http://elpa.gnu.org/packages/")
+   '(("gnu" . "http://elpa.gnu.org/packages/")
      ("melpa-stable" . "https://stable.melpa.org/packages/")
-     ("melpa" . "https://melpa.org/packages/"))))
+     ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   (quote
-    (vc-hgcmd battle-haxe php-mode tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package)))
+   '(vc-hgcmd battle-haxe php-mode tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package))
  '(tool-bar-mode nil)
- '(vc-handled-backends (quote (RCS CVS SVN SCCS SRC Bzr Git Hgcmd Hg))))
+ '(vc-handled-backends '(RCS CVS SVN SCCS SRC Bzr Git Hgcmd Hg)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(diff-added ((t (:inherit diff-changed :background "#337744" :foreground "#ffffff"))))
- '(diff-refine-added ((t (:inherit diff-refine-changed :background "#22ff44" :foreground "#3300ff"))))
+ '(diff-added ((t (:inherit diff-changed :extend t :background "#002200" :foreground "#bbffbb"))))
+ '(diff-file-header ((t (:extend t :background "grey20" :weight bold))))
+ '(diff-refine-added ((t (:inherit diff-refine-changed :background "#004400" :foreground "#aaffff"))))
+ '(diff-refine-changed ((t (:background "#444400"))))
+ '(diff-refine-removed ((t (:inherit diff-refine-changed :background "#660000"))))
+ '(diff-removed ((t (:inherit diff-changed :extend t :background "#330000"))))
  '(js2-error ((t (:foreground "#ffaabb" :underline t)))))
 
 ;; binki’s attempt to bootstrap use-package
