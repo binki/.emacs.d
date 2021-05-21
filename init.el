@@ -47,6 +47,7 @@
  '(default-frame-alist
     '((background-color . "black")
       (foreground-color . "green")))
+ '(ispell-program-name "aspell")
  '(menu-bar-mode nil)
  '(package-archives
    '(("gnu" . "http://elpa.gnu.org/packages/")
