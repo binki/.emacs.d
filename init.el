@@ -54,7 +54,7 @@
      ("melpa-stable" . "https://stable.melpa.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(vc-hgcmd battle-haxe php-mode tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package))
+   '(activity-watch-mode vc-hgcmd battle-haxe php-mode tide company web-mode company-mode csharp-mode editorconfig js2-mode use-package))
  '(tool-bar-mode nil)
  '(vc-handled-backends '(RCS CVS SVN SCCS SRC Bzr Git Hgcmd Hg)))
 (custom-set-faces
@@ -78,6 +78,10 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 (setq use-package-always-pin "melpa-stable")
+
+(use-package
+  activity-watch-mode)
+(global-activity-watch-mode)
 
 (use-package
   js2-mode
