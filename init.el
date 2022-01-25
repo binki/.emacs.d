@@ -81,7 +81,11 @@
 
 (use-package
   activity-watch-mode)
-(global-activity-watch-mode)
+(url-retrieve
+  "http://localhost:5600/"
+  (lambda (status)
+    ;; status will be nil if there are no errors, so enable the mode then
+    (if (not status) (global-activity-watch-mode))))
 
 (use-package
   js2-mode
