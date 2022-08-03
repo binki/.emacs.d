@@ -196,3 +196,6 @@
              2)))
        (add-to-list 'compilation-error-regexp-alist-alist regexp)
        (add-to-list 'compilation-error-regexp-alist (car regexp)))))
+
+;; Treat various MSBuild project-containing files as XML from the get-go.
+(add-to-list 'auto-mode-alist '("\\.\\(csproj\\|proj\\|props\\|targets\\|rptproj\\|vbproj\\)\\'" . nxml-mode))
