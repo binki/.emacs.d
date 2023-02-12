@@ -183,6 +183,11 @@
    (when (string-equal "tsx" (file-name-extension buffer-file-name))
      (setup-tide-mode))))
 
+(defun binki-windows-bash ()
+  (interactive)
+  (let ((explicit-shell-file-name "\\msys64\\usr\\bin\\bash"))
+    (shell "*windows-bash*")))
+
 ;; Get the test failures from node like stack traces to be recognized.
 (eval-after-load "compile"
   '(progn
