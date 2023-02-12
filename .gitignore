@@ -7,5 +7,7 @@ elpa
 server
 tramp
 cache
+# State for eshell.
+eshell/
 # State for the request package such as cookies
 request/
