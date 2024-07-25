@@ -45,8 +45,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default-frame-alist
-    '((background-color . "black")
-      (foreground-color . "green")))
+   '((background-color . "black")
+     (foreground-color . "green")))
  '(ispell-program-name "aspell")
  '(menu-bar-mode nil)
  '(package-archives
